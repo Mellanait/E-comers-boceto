@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="generalstyles.css">
+  <link rel="stylesheet" href="ofertas.css">
+  <title>Ofertas</title>
+</head>
+<body class="bg-light">
+
+  <div id="navbar"></div>
+
+  <!-- ── HERO BANNER ── -->
+  <div class="hero-ofertas text-white text-center py-5">
+    <div class="container">
+      <span class="badge bg-danger fs-6 mb-3 px-3 py-2">🔥 Ofertas especiales</span>
+      <h1 class="fw-bold display-4">Precios que no duran</h1>
+      <p class="lead opacity-75">Descuentos reales en ropa seleccionada. Solo por tiempo limitado.</p>
+    </div>
+  </div>
+
+  <!-- ── FILTROS ── -->
+  <div class="container mt-4">
+    <div class="d-flex flex-wrap gap-2 justify-content-center mb-4" id="filtros">
+      <button class="btn btn-dark btn-sm activo" onclick="filtrar('todos')">Todos</button>
+      <button class="btn btn-outline-dark btn-sm" onclick="filtrar('poleras')">Poleras</button>
+      <button class="btn btn-outline-dark btn-sm" onclick="filtrar('pantalones')">Pantalones</button>
+      <button class="btn btn-outline-dark btn-sm" onclick="filtrar('chalecos')">Chalecos</button>
+      <button class="btn btn-outline-dark btn-sm" onclick="filtrar('gorras')">Gorras</button>
+    </div>
+
+    <!-- ── CARDS ── -->
+    <div class="row g-4" id="listaOfertas"></div>
+  </div>
+
+  <!-- ── MODAL ── -->
+  <div class="modal fade" id="modalOferta" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="modalNombre"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="position-relative mb-3">
+            <img id="modalImagen" src="" alt="" class="img-fluid rounded w-100" style="max-height: 280px; object-fit: cover;">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6" id="modalBadge"></span>
+          </div>
+          <p class="text-muted" id="modalDescripcion"></p>
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <span class="text-muted text-decoration-line-through fs-5" id="modalPrecioOriginal"></span>
+            <span class="text-danger fw-bold fs-4" id="modalPrecioFinal"></span>
+          </div>
+          <div class="alert alert-success py-2 mb-0">
+            <i class="bi bi-tag-fill me-1"></i>
+            Ahorras <strong id="modalAhorro"></strong> con esta oferta
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button class="btn btn-dark w-100" id="modalBtnAgregar">
+            <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="navbar.js"></script>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+        iniciarNavbar();
+      });
+  </script>
+  <script src="ofertas.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

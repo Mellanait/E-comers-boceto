@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="perfil.css">
     <title>Document</title>
 </head>
 <body>
+<div class="perfil-container">
+  <h2>Mi perfil</h2>
 
-    <button id="userBtn" class="btn btn-outline-dark">
-        <i class="bi bi-person"></i>
-    </button>
+  <div class="perfil-email" id="perfilEmail">
+    correo@ejemplo.cl
+  </div>
 
-    <h2>Mi perfil</h2>
-    <p id="perfilEmail"></p>
+  <div class="mb-3">
+    <label class="form-label">Nueva contraseña</label>
+    <input
+      type="password"
+      id="nuevoPassword"
+      class="form-control"
+      placeholder="Ingresa nueva contraseña"
+    />
+  </div>
 
-    <input type="password" id="nuevoPassword" class="form-control mb-3" placeholder="Nueva contraseña">
+  <button class="btn btn-primary" id="guardarCambios">
+    Guardar cambios
+  </button>
 
-    <button class="btn btn-primary" id="guardarCambios">Guardar cambios</button>
-    <button class="btn btn-danger" onclick="logout()">Cerrar sesión</button>
-
+  <button class="btn btn-danger mt-3" onclick="logout()">
+    Cerrar sesión
+  </button>
+</div>
 
 
 </body>
